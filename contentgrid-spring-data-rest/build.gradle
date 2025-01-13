@@ -35,6 +35,8 @@ dependencies {
     implementation 'com.github.paulcwarren:spring-content-rest'
     implementation 'com.contentgrid.thunx:spring-data-querydsl-predicate-injector'
 
+    implementation 'org.springframework.boot:spring-boot'
+
     implementation project(':contentgrid-spring-querydsl')
     implementation project(':contentgrid-spring-data-pagination')
     implementation project(':contentgrid-spring-data-support')

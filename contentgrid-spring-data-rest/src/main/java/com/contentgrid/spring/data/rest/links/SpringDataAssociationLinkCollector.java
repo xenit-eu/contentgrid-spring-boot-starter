@@ -31,7 +31,7 @@ import org.springframework.http.HttpMethod;
  * Collects links to jpa relations in the {@link ContentGridLinkRelations#RELATION} link-relation
  */
 @RequiredArgsConstructor
-class SpringDataAssociationLinkCollector implements ContentGridLinkCollector {
+class SpringDataAssociationLinkCollector implements ContentGridLinkCollector<Object> {
     private final PersistentEntities entities;
     private final Associations associationLinks;
     private final SelfLinkProvider selfLinkProvider;
@@ -68,11 +68,6 @@ class SpringDataAssociationLinkCollector implements ContentGridLinkCollector {
         });
 
         return existing.and(links);
-    }
-
-    @Override
-    public Links getLinksForNested(Object object, Links existing) {
-        return existing;
     }
 
     private Link addAssociationAffordance(Link associationLink, Class<?> owner, Property association) {
