@@ -9,7 +9,7 @@ javaPlatform {
 
 
 dependencies {
-    api platform('org.springframework.boot:spring-boot-dependencies:3.3.4')
+    api platform('org.springframework.boot:spring-boot-dependencies:3.4.1')
     api platform('com.contentgrid.thunx:thunx-bom:0.11.0')
     api platform('com.github.paulcwarren:spring-content-bom:3.0.15')
     api platform('io.cloudevents:cloudevents-bom:4.0.1')
