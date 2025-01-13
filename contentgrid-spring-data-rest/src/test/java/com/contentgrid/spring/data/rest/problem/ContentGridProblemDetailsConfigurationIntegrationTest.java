@@ -268,10 +268,11 @@ class ContentGridProblemDetailsConfigurationIntegrationTest {
         static Stream<Arguments> relationUrls() {
             return Stream.of(
                     Arguments.of(HttpMethod.POST, "/invoices"),
-                    Arguments.of(HttpMethod.PUT, "/invoices/" + INVOICE_ID_CREATE),
+                    Arguments.of(HttpMethod.PUT, "/invoices/" + INVOICE_ID_CREATE)
                     // When updating, the relation is ignored
                     // Arguments.of(HttpMethod.PUT, "/invoices/" + INVOICE_ID_UPDATE),
-                    Arguments.of(HttpMethod.PATCH, "/invoices/" + INVOICE_ID_UPDATE)
+                    // When patching, the relation is NOT ignored @Disabled ACC-1321
+                    // Arguments.of(HttpMethod.PATCH, "/invoices/" + INVOICE_ID_UPDATE)
             );
         }
 
@@ -409,6 +410,7 @@ class ContentGridProblemDetailsConfigurationIntegrationTest {
         }
 
         @Test
+        @Disabled("moved to DatabaseConstraintViolations (ACC-1321)")
         void updateEntityRemoveRequiredRelation() throws Exception {
             // for PUT, relations are ignored if they are not present
             /*
@@ -607,9 +609,22 @@ class ContentGridProblemDetailsConfigurationIntegrationTest {
         }
 
         @Test
-        @Disabled("cases are covered by constraints, so no direct way to check it")
-        void foreignKeyConstraintViolation() {
-
+        // cases are covered by constraints, except for PATCH
+        void foreignKeyConstraintViolation() throws Exception {
+            var invoice = createInvoice();
+            mockMvc.perform(patch("/invoices/{id}", invoice.getId())
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .accept(MediaTypes.HAL_FORMS_JSON, MediaTypes.HAL_JSON)
+                            .content("""
+                                    {
+                                        "counterparty": null
+                                    }
+                                    """)
+                    )
+                    .andExpect(problemDetails()
+                            .withStatusCode(HttpStatus.BAD_REQUEST)
+                            .withType(PROBLEM_TYPE_PREFIX + "integrity/constraint-violation")
+                    );
         }
 
     }
