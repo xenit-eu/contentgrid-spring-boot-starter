@@ -25,7 +25,7 @@ import org.springframework.util.StringUtils;
  * Collects links to spring-content content objects into the {@link ContentGridLinkRelations#CONTENT} link-relation
  */
 @RequiredArgsConstructor
-class SpringContentLinkCollector implements ContentGridLinkCollector {
+class SpringContentLinkCollector implements ContentGridLinkCollector<Object> {
     private final PersistentEntities entities;
     private final Stores stores;
     private final MappingContext mappingContext;
@@ -92,10 +92,5 @@ class SpringContentLinkCollector implements ContentGridLinkCollector {
 
 
         return existing.and(links);
-    }
-
-    @Override
-    public Links getLinksForNested(Object object, Links existing) {
-        return existing;
     }
 }
