@@ -1,8 +1,6 @@
 package com.contentgrid.spring.data.rest.links;
 
-import java.util.Collection;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.util.LambdaSafe;
 import org.springframework.data.rest.webmvc.mapping.LinkCollector;
 import org.springframework.hateoas.Links;
 
