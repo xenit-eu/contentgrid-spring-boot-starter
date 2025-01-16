@@ -1,5 +1,6 @@
 package com.contentgrid.spring.data.rest.webmvc.blueprint;
 
+import com.contentgrid.spring.data.querydsl.sort.CollectionFilterSortHalFormsPayloadMetadataContributor;
 import com.contentgrid.spring.data.rest.mapping.DomainTypeMapping;
 import com.contentgrid.spring.data.rest.mapping.persistent.ThroughAssociationsContainer;
 import com.contentgrid.spring.data.rest.mapping.rest.DataRestBasedContainer;
@@ -26,16 +27,21 @@ public class EntityRepresentationModelAssembler implements
     private final AttributeRepresentationModelAssembler attributeAssembler;
     private final RelationRepresentationModelAssembler relationAssembler;
 
-    public EntityRepresentationModelAssembler(Repositories repositories, MessageResolver messageResolver,
-            RepositoryRestConfiguration repositoryRestConfiguration, ResourceMappings resourceMappings,
-            CollectionFiltersMapping collectionFiltersMapping) {
+    public EntityRepresentationModelAssembler(
+            Repositories repositories,
+            MessageResolver messageResolver,
+            RepositoryRestConfiguration repositoryRestConfiguration,
+            ResourceMappings resourceMappings,
+            CollectionFiltersMapping collectionFiltersMapping,
+            CollectionFilterSortHalFormsPayloadMetadataContributor contributor
+    ) {
         this.domainTypeMapping = new DomainTypeMapping(repositories)
                 .wrapWith(container -> new ThroughAssociationsContainer(container, repositories, 1))
                 .wrapWith(DataRestBasedContainer::new)
                 // no JacksonBasedContainer because we still need to access the java property names
         ;
         this.messageResolver = messageResolver;
-        this.attributeAssembler = new AttributeRepresentationModelAssembler(collectionFiltersMapping, messageResolver);
+        this.attributeAssembler = new AttributeRepresentationModelAssembler(collectionFiltersMapping, messageResolver, contributor);
         this.relationAssembler = new RelationRepresentationModelAssembler(repositoryRestConfiguration, resourceMappings, messageResolver);
     }
 

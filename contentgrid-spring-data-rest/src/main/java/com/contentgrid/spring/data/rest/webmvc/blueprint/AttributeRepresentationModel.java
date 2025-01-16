@@ -47,6 +47,10 @@ public class AttributeRepresentationModel extends RepresentationModel<AttributeR
 
     @JsonIgnore
     @Builder.Default
+    private final Collection<SortParamRepresentationModel> sortParams = List.of();
+
+    @JsonIgnore
+    @Builder.Default
     private final Collection<AttributeRepresentationModel> attributes = List.of();
 
     @JsonProperty
@@ -57,6 +61,7 @@ public class AttributeRepresentationModel extends RepresentationModel<AttributeR
         return new CollectionModel<>(List.of(
                 embeddedWrappers.wrap(constraints, BlueprintLinkRelations.CONSTRAINT),
                 embeddedWrappers.wrap(searchParams, BlueprintLinkRelations.SEARCH_PARAM),
+                embeddedWrappers.wrap(sortParams, BlueprintLinkRelations.SORT_PARAM),
                 embeddedWrappers.wrap(attributes, BlueprintLinkRelations.ATTRIBUTE)
         )) {
 
@@ -87,5 +92,17 @@ public class AttributeRepresentationModel extends RepresentationModel<AttributeR
         String title;
         String type;
 
+    }
+
+    @Builder
+    @Getter
+    @AllArgsConstructor
+    @Relation(BlueprintLinkRelations.SORT_PARAM_STRING)
+    public static class SortParamRepresentationModel {
+
+        String name;
+        @JsonInclude(Include.NON_EMPTY)
+        String title;
+        String direction;
     }
 }
