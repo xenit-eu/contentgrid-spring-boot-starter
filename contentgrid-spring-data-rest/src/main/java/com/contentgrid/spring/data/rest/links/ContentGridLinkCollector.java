@@ -2,9 +2,11 @@ package com.contentgrid.spring.data.rest.links;
 
 import org.springframework.hateoas.Links;
 
-public interface ContentGridLinkCollector {
+public interface ContentGridLinkCollector<T> {
 
-    Links getLinksFor(Object object, Links existing);
+    Links getLinksFor(T object, Links existing);
 
-    Links getLinksForNested(Object object, Links existing);
+    default Links getLinksForNested(T object, Links existing) {
+        return existing;
+    }
 }

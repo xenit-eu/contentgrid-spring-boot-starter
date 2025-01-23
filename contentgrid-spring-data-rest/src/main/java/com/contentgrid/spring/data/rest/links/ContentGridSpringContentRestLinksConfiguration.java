@@ -15,7 +15,7 @@ import org.springframework.hateoas.mediatype.MessageResolver;
 @Import(ContentGridSpringDataLinksConfiguration.class)
 public class ContentGridSpringContentRestLinksConfiguration {
     @Bean
-    ContentGridLinkCollector contentGridSpringContentLinkCollector(
+    ContentGridLinkCollector<?> contentGridSpringContentLinkCollector(
             PersistentEntities entities, Stores stores, MappingContext mappingContext,
             RestConfiguration restConfiguration, ContentPropertyToRequestMappingContext requestMappingContext,
             ContentPropertyToLinkrelMappingContext linkrelMappingContext, MessageResolver resolver
