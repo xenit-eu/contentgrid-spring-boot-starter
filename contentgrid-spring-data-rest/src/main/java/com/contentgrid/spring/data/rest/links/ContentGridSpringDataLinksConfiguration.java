@@ -29,7 +29,7 @@ public class ContentGridSpringDataLinksConfiguration {
 
     @Bean
     RepositoryRestConfigurer contentGridLinkCollectorConfigurer(
-            ObjectProvider<ContentGridLinkCollector> collectors
+            ObjectProvider<ContentGridLinkCollector<?>> collectors
     ) {
         return new RepositoryRestConfigurer() {
             @Override
@@ -40,7 +40,8 @@ public class ContentGridSpringDataLinksConfiguration {
     }
 
     @Bean
-    ContentGridLinkCollector contentGridRelationLinkCollector(PersistentEntities entities, Associations associations, SelfLinkProvider selfLinkProvider, MessageResolver resolver) {
+    ContentGridLinkCollector<?> contentGridRelationLinkCollector(PersistentEntities entities, Associations associations,
+            SelfLinkProvider selfLinkProvider, MessageResolver resolver) {
         return new SpringDataAssociationLinkCollector(entities, associations, selfLinkProvider, resolver);
     }
 
