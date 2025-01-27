@@ -1,5 +1,6 @@
 package com.contentgrid.spring.data.rest.validation;
 
+import jakarta.validation.groups.Default;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.ObjectProvider;
@@ -38,22 +39,22 @@ public class BeanValidationRepositoryEventListener extends AbstractRepositoryEve
 
     @Override
     protected void onBeforeCreate(Object entity) {
-        validate(entity);
+        validate(entity, Default.class, OnEntityUpdate.class, OnAssociationUpdate.class);
     }
 
     @Override
     protected void onBeforeSave(Object entity) {
-        validate(entity);
+        validate(entity, Default.class, OnEntityUpdate.class);
     }
 
     @Override
     protected void onBeforeLinkSave(Object parent, Object linked) {
-        validate(parent);
+        validate(parent, Default.class, OnAssociationUpdate.class);
     }
 
     @Override
     protected void onBeforeLinkDelete(Object parent, Object linked) {
-        validate(parent);
+        validate(parent, Default.class, OnAssociationUpdate.class);
     }
 
     @Override

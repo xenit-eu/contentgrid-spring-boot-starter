@@ -1,6 +1,8 @@
 package com.contentgrid.spring.test.fixture.invoicing.model;
 
+import com.contentgrid.spring.data.rest.validation.OnAssociationUpdate;
 import com.contentgrid.spring.data.rest.validation.OnEntityDelete;
+import com.contentgrid.spring.data.rest.validation.OnEntityUpdate;
 import com.contentgrid.spring.data.support.auditing.v1.AuditMetadata;
 import com.contentgrid.spring.querydsl.annotation.CollectionFilterParam;
 import com.contentgrid.spring.querydsl.predicate.EntityId;
@@ -76,7 +78,7 @@ public class Invoice {
 
     @Column(nullable = false)
     @CollectionFilterParam(predicate = EqualsIgnoreCase.class)
-    @NotNull
+    @NotNull(groups = OnEntityUpdate.class)
     private String number;
 
     private boolean draft;
@@ -125,7 +127,7 @@ public class Invoice {
     @JoinColumn(name = "counterparty", nullable = false)
     @org.springframework.data.rest.core.annotation.RestResource(rel = "d:counterparty")
     @CollectionFilterParam(predicate = EntityId.class, documented = false)
-    @NotNull
+    @NotNull(groups = OnAssociationUpdate.class)
     private Customer counterparty;
 
     @OneToMany

@@ -2,6 +2,7 @@ package com.contentgrid.spring.test.fixture.invoicing.model;
 
 import com.contentgrid.spring.data.rest.validation.AllowedValues;
 import com.contentgrid.spring.data.rest.validation.OnEntityDelete;
+import com.contentgrid.spring.data.rest.validation.OnEntityUpdate;
 import com.contentgrid.spring.data.support.auditing.v1.AuditMetadata;
 import com.contentgrid.spring.querydsl.annotation.CollectionFilterParam;
 import com.contentgrid.spring.querydsl.predicate.EntityId;
@@ -73,7 +74,7 @@ public class Customer {
 
     @Column(unique = true, nullable = false)
     @CollectionFilterParam(predicate = EqualsIgnoreCase.class)
-    @NotNull
+    @NotNull(groups = OnEntityUpdate.class)
     private String vat;
 
     @Embedded

@@ -1,5 +1,6 @@
 package com.contentgrid.spring.test.fixture.invoicing.model;
 
+import com.contentgrid.spring.data.rest.validation.OnEntityUpdate;
 import com.contentgrid.spring.querydsl.annotation.CollectionFilterParam;
 import com.contentgrid.spring.querydsl.predicate.EntityId;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,7 +34,7 @@ public class PromotionCampaign {
 
     @Column(updatable = false, nullable = false)
     @CollectionFilterParam(value = "promo_code")
-    @NotNull
+    @NotNull(groups = OnEntityUpdate.class)
     private String promoCode;
 
     String description;

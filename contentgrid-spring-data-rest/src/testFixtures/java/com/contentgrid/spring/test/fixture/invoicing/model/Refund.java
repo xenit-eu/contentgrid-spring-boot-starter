@@ -1,5 +1,6 @@
 package com.contentgrid.spring.test.fixture.invoicing.model;
 
+import com.contentgrid.spring.data.rest.validation.OnAssociationUpdate;
 import com.contentgrid.spring.querydsl.annotation.CollectionFilterParam;
 import com.contentgrid.spring.querydsl.predicate.EntityId;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -30,7 +31,7 @@ public class Refund {
     @CollectionFilterParam
     @CollectionFilterParam(predicate = EntityId.class, documented = false)
     @org.springframework.data.rest.core.annotation.RestResource(rel = "d:invoice")
-    @NotNull
+    @NotNull(groups = OnAssociationUpdate.class)
     private Invoice invoice;
 
 }
