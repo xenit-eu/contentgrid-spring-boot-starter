@@ -90,7 +90,7 @@ public class CollectionFilterSortHalFormsPayloadMetadataContributor extends
     }
 
     @Value
-    private static class SortOption {
+    public static class SortOption {
 
         String property;
 
@@ -113,7 +113,7 @@ public class CollectionFilterSortHalFormsPayloadMetadataContributor extends
 
     @Getter
     @RequiredArgsConstructor
-    private class SortPropertyMetadata implements PropertyMetadata {
+    public class SortPropertyMetadata implements PropertyMetadata {
 
         private final List<SortOption> sortOptions;
 

@@ -23,4 +23,6 @@ public class BlueprintLinkRelations {
     public static final String CONSTRAINT_STRING = CURIE + ":constraint";
     public static final LinkRelation SEARCH_PARAM = HalLinkRelation.curied(CURIE, "search-param");
     public static final String SEARCH_PARAM_STRING = CURIE + ":search-param";
+    public static final LinkRelation SORT_PARAM = HalLinkRelation.curied(CURIE, "sort-param");
+    public static final String SORT_PARAM_STRING = CURIE + ":sort-param";
 }

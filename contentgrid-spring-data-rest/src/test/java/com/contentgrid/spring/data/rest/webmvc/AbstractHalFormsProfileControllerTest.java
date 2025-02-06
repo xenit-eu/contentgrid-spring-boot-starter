@@ -341,6 +341,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     title: "VAT number",
                                                     type: "case-insensitive-match"
                                                 }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "vat,asc",
+                                                    title: "VAT number A→Z",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "vat,desc",
+                                                    title: "VAT number Z→A",
+                                                    direction: "desc"
+                                                }
                                             ]
                                         }
                                     },
@@ -365,6 +377,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                                 name: "content.size",
                                                                 type: "exact-match"
                                                             }
+                                                        ],
+                                                        "blueprint:sort-param": [
+                                                            {
+                                                                name: "content.size,asc",
+                                                                title: "content.size 0→9",
+                                                                direction: "asc"
+                                                            },
+                                                            {
+                                                                name: "content.size,desc",
+                                                                title: "content.size 9→0",
+                                                                direction: "desc"
+                                                            }
                                                         ]
                                                     }
                                                 },
@@ -381,6 +405,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                                 name: "content.mimetype",
                                                                 title: "Customer Document Mimetype",
                                                                 type: "exact-match"
+                                                            }
+                                                        ],
+                                                        "blueprint:sort-param": [
+                                                            {
+                                                                name: "content.mimetype,asc",
+                                                                title: "Customer Document Mimetype A→Z",
+                                                                direction: "asc"
+                                                            },
+                                                            {
+                                                                name: "content.mimetype,desc",
+                                                                title: "Customer Document Mimetype Z→A",
+                                                                direction: "desc"
                                                             }
                                                         ]
                                                     }
@@ -399,6 +435,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                                 title: "Customer Document Filename",
                                                                 type: "exact-match"
                                                             }
+                                                        ],
+                                                        "blueprint:sort-param": [
+                                                            {
+                                                                name: "content.filename,asc",
+                                                                title: "Customer Document Filename A→Z",
+                                                                direction: "asc"
+                                                            },
+                                                            {
+                                                                name: "content.filename,desc",
+                                                                title: "Customer Document Filename Z→A",
+                                                                direction: "desc"
+                                                            }
                                                         ]
                                                     }
                                                 }
@@ -416,6 +464,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                 {
                                                     name: "birthday",
                                                     type: "exact-match"
+                                                }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "birthday,asc",
+                                                    title: "birthday oldest first",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "birthday,desc",
+                                                    title: "birthday newest first",
+                                                    direction: "desc"
                                                 }
                                             ]
                                         }
@@ -437,6 +497,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                 {
                                                     name: "gender",
                                                     type: "exact-match"
+                                                }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "gender,asc",
+                                                    title: "gender A→Z",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "gender,desc",
+                                                    title: "gender Z→A",
+                                                    direction: "desc"
                                                 }
                                             ]
                                         }
@@ -554,6 +626,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     name: "number",
                                                     type: "case-insensitive-match"
                                                 }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "number,asc",
+                                                    title: "number A→Z",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "number,desc",
+                                                    title: "number Z→A",
+                                                    direction: "desc"
+                                                }
                                             ]
                                         }
                                     },
@@ -576,6 +660,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     name: "paid",
                                                     type: "exact-match"
                                                 }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "paid,asc",
+                                                    title: "paid ascending",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "paid,desc",
+                                                    title: "paid descending",
+                                                    direction: "desc"
+                                                }
                                             ]
                                         }
                                     },
@@ -590,6 +686,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                 {
                                                     name: "content.length",
                                                     type: "exact-match"
+                                                }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "content.length,asc",
+                                                    title: "content.length 0→9",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "content.length,desc",
+                                                    title: "content.length 9→0",
+                                                    direction: "desc"
                                                 }
                                             ]
                                         }
@@ -707,6 +815,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     name: "from",
                                                     type: "case-insensitive-match"
                                                 }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "from,asc",
+                                                    title: "from A→Z",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "from,desc",
+                                                    title: "from Z→A",
+                                                    direction: "desc"
+                                                }
                                             ]
                                         }
                                     },
@@ -727,6 +847,18 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     name: "to",
                                                     type: "case-insensitive-match"
                                                 }
+                                            ],
+                                            "blueprint:sort-param": [
+                                                {
+                                                    name: "to,asc",
+                                                    title: "to A→Z",
+                                                    direction: "asc"
+                                                },
+                                                {
+                                                    name: "to,desc",
+                                                    title: "to Z→A",
+                                                    direction: "desc"
+                                                }
                                             ]
                                         }
                                     },
@@ -746,7 +878,8 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     readOnly: true,
                                                     required: false,
                                                     _embedded: {
-                                                        "blueprint:search-param": [] # assert empty, because CollectionFilterParam is missing on barcode_picture
+                                                        "blueprint:search-param": [], # assert empty, because CollectionFilterParam is missing on barcode_picture
+                                                        "blueprint:sort-param": [] # assert empty, because CollectionFilterParam is missing on barcode_picture
                                                     }
                                                 },
                                                 {
@@ -757,7 +890,8 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     readOnly: false,
                                                     required: false,
                                                     _embedded: {
-                                                        "blueprint:search-param": []
+                                                        "blueprint:search-param": [],
+                                                        "blueprint:sort-param": []
                                                     }
                                                 },
                                                 {
@@ -768,7 +902,8 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     readOnly: false,
                                                     required: false,
                                                     _embedded: {
-                                                        "blueprint:search-param": []
+                                                        "blueprint:search-param": [],
+                                                        "blueprint:sort-param": []
                                                     }
                                                 }
                                             ]
@@ -790,7 +925,8 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     readOnly: true,
                                                     required: false,
                                                     _embedded: {
-                                                        "blueprint:search-param": []
+                                                        "blueprint:search-param": [],
+                                                        "blueprint:sort-param": []
                                                     }
                                                 },
                                                 {
@@ -801,7 +937,8 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     readOnly: false,
                                                     required: false,
                                                     _embedded: {
-                                                        "blueprint:search-param": []
+                                                        "blueprint:search-param": [],
+                                                        "blueprint:sort-param": []
                                                     }
                                                 },
                                                 {
@@ -812,7 +949,8 @@ abstract class AbstractHalFormsProfileControllerTest {
                                                     readOnly: false,
                                                     required: false,
                                                     _embedded: {
-                                                        "blueprint:search-param": []
+                                                        "blueprint:search-param": [],
+                                                        "blueprint:sort-param": []
                                                     }
                                                 }
                                             ]

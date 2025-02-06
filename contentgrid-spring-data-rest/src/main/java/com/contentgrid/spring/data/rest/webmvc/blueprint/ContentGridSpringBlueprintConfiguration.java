@@ -1,5 +1,6 @@
 package com.contentgrid.spring.data.rest.webmvc.blueprint;
 
+import com.contentgrid.spring.data.querydsl.sort.CollectionFilterSortHalFormsPayloadMetadataContributor;
 import com.contentgrid.spring.data.rest.hal.CurieProviderCustomizer;
 import com.contentgrid.spring.querydsl.mapping.CollectionFiltersMapping;
 import org.springframework.context.annotation.Bean;
@@ -21,9 +22,10 @@ public class ContentGridSpringBlueprintConfiguration {
     EntityRepresentationModelAssembler entityRepresentationModelAssembler(
             Repositories repositories, MessageResolver messageResolver,
             RepositoryRestConfiguration repositoryRestConfiguration, ResourceMappings resourceMappings,
-            CollectionFiltersMapping collectionFiltersMapping
+            CollectionFiltersMapping collectionFiltersMapping,
+            CollectionFilterSortHalFormsPayloadMetadataContributor contributor
     ) {
         return new EntityRepresentationModelAssembler(repositories, messageResolver, repositoryRestConfiguration,
-                resourceMappings, collectionFiltersMapping);
+                resourceMappings, collectionFiltersMapping, contributor);
     }
 }
